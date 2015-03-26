@@ -15,7 +15,7 @@ sup{vertical-align:super;font-size:small;}
         #l2{background:transparent url('gear.gif') right top no-repeat;z-index:3;}
         #l3{background:transparent url('skyline.png') left 15px repeat-x;z-index:4;}
         .tabs{
-            background:#1d2632 url('ahcorner.gif') 77px bottom no-repeat;
+            background:#1d2632 url('ahcorner.gif') 87px bottom no-repeat;
             width:100%;
             }
             .tabs a{text-decoration:none;}
@@ -29,7 +29,7 @@ sup{vertical-align:super;font-size:small;}
                 margin-top:8px;
             }
             .tabs .l{
-                margin-left:90px;
+                margin-left:100px;
                 background:#89a02c url('tabbg.png') left top repeat-x;
             }
             .tabs .m{

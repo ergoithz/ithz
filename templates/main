@@ -28,7 +28,7 @@
         <div class="header">
             <div id="l1"></div><div id="l2"></div><div id="l3"></div>
             <div class="tabs">
-                <div class="ahome"><a href="/" title="Go home" rel="Start"><img src="/style/ithz.png" alt="ithz"/></a></div>
+                <div class="ahome"><a href="/" title="Go home" rel="Start"><img src="/style/ithz.gif" alt="ithz"/></a></div>
                 <div class="l"><div class="m"><div class="n"  id="topmenu">{% include "controls/topmenu" %}</div><hr class="hr"/></div></div>
             </div>
         </div>
