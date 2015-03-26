@@ -1,0 +1,24 @@
+{% extends "skeletons/form" %}
+{% block success_message %}The changes were saved succesfully.{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="display:block">
+    <legend>Counters management</legend>
+    {% for i in counters %}
+        <h3>{{i.name|capfirst}}s</h3>
+        <ol>
+        {% for j in i.items %}
+        <li>
+            <label for="level_{{j.name}}_int_">{{j.type}}s</label>
+            <div class="inputcontainer"><input type="text" name="level_{{j.name}}" id="level_{{j.name}}_int_" value="{{j.value}}" size="5" style="text-align:right;"/></div><span>of {{j.of}} entr{{ j.of|pluralize:"y,ies"}}</span>
+        </li>
+        {% endfor %}
+        </ol>
+    {% endfor %}
+    <ol>
+        <li>
+            <div>Google App Engine cannot count more than 1000 entries in their databases</div>
+            <div><input type="submit"/></div>
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

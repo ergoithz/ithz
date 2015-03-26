@@ -1,0 +1,4 @@
+cron:
+- description: 12 hours RSS refresh
+  url: /cron/rss
+  schedule: every 12 hours

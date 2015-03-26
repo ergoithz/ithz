@@ -1,0 +1,14 @@
+{% extends "skeletons/form" %}
+{% block success_message %}The changes were saved succesfully.{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="display:block">
+    <legend>Maintenance</legend>
+    <ol>
+        <li>
+            <label for="clearmem_switch_">Clear cache</label>
+            <div class="inputcontainer"><input type="checkbox" name="clearmem" id="clearmem_switch_" value="on" /></div>
+        </li>
+        <li><input type="submit"/></li>
+    </ol>
+</fieldset>
+{% endblock %}

@@ -1,0 +1,33 @@
+<form name="newsection" class="newSectionForm" action="{{ form_action }}" method="post">
+{% if errors %}
+<div class="errors" >
+    <span class="title">An error has been found.</span>
+    {% for i in errors %}
+    <span class="item">{{ i }}.</span>
+    {% endfor %}
+</div>
+{% endif %}
+{% if formsuccess %}
+<div class="success" >
+    <span class="title">The section has been removed succesfully.</span>
+</div>
+{% else %}
+<fieldset class="formFieldset" style="width:100%">
+    <legend>Section removal</legend>
+    <ol>
+        {% if parentid %}<li>
+            Parent: {{ parentid }}
+        </li>{% endif %}
+        <li>Section id: {{id}}</li>
+        <li>Link name: {{link}}</li>
+        <li>Priority: {{priority}}</li>
+        <li>Description: {{description}}</li>
+        <li>Content: {{ content }}</li>
+        <li>
+            <label>Are you sure you want to remove this section?</label>
+            <input type="submit" value="Yes, I am"></input><a href="/admin/"><input type="button" value="Not really"></input></a>
+        </li>
+    </ol>
+</fieldset>
+{% endif %}
+</form>

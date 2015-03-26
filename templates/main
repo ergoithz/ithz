@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>ithz</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="keywords" content="software development"/>
+<meta name="description" lang="es" content="ithz, desarrollo de software"/>
+<meta name="description" lang="en" content="ithz, software development"/>
+<meta name="author" content="Felipe A Hernandez"/>
+<meta name="copyright" content="August 2009"/>
+<link rel="StyleSheet" type="text/css" href="/style/fixes/reset.css"/>
+<link rel="StyleSheet" type="text/css" href="/style/style.css"/>
+<link rel="StyleSheet" type="text/css" href="/style/content.css"/>
+<!--[if lte IE 7]><link rel="StyleSheet" type="text/css" href="/style/fixes/ie7.css"/><![endif]-->
+{{ JavaScripts|safe }}
+</head>
+<body{% if sideitems %}{% else %} class="nomenu"{% endif %}>
+    <div class="wrapper">
+        <div class="topmenu">
+            <span class="container">
+            <span id="lang">{% for item in languages %}<a href="{{ item.href }}" hreflang="{{ item.hreflang }}" title="{{ item.alt }}"><img src="{{ item.src }}" alt="{{ item.alt }}"/></a>{% endfor %}</span>
+            <span id="login">{% if not logged %}<a href="{{ login }}" title="Login as known user"><img src="/icons/lock_add.png" alt=""/></a>
+            {% else %}<a href="{{ unlog }}" title="End website's user session"><img src="/icons/lock_go.png" alt=""/>{% comment %}<span class="loginid"> {{ username }}</span>{% endcomment %}</a>{% endif %}</span>
+            </span>
+        </div>
+        <div class="lang"></div>
+        <div class="header">
+            <div id="l1"></div><div id="l2"></div><div id="l3"></div>
+            <div class="tabs">
+                <div class="ahome"><a href="/" title="Go home" rel="Start"><img src="/style/ithz.png" alt="ithz"/></a></div>
+                <div class="l"><div class="m"><div class="n"  id="topmenu">{% include "controls/topmenu" %}</div><hr class="hr"/></div></div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="menu" id="sidemenu">{% include "controls/sidemenu" %}</div>
+            <div class="content"><div id="pagecontent">{% include "controls/contentblock" %}</div><span class="statistics">Page generated in <span id="gentime">{{gentime}}</span> seconds.</span></div>
+            <hr class="hr"/>
+        </div>
+    </div>
+    <img class="footer1" src="/style/footer.png" alt="This CMS respects web standards" usemap="#footermap" />
+    <img class="footer2" src="/style/footer2.png" alt="This CMS respects web standards" usemap="#footermap" />
+    <map name="footermap" id="footermap">
+        <area shape="rect" coords="8,8,133,40" href="http://validator.w3.org/check?uri=referer" alt="Valid XHTML and CSS" />
+        <area shape="rect" coords="141,8,242,40" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" alt="Creative Commons License: Attribution - Non comercial - No derivatives" />
+    </map>
+</body>
+</html>

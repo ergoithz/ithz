@@ -1,0 +1,19 @@
+{% extends "skeletons/form" %}
+{% block success_message %}The user has been removed succesfully.{% endblock %}
+{% block success_backlink %}<a href="{{backurl}}" class="back" >Go to user list</a>{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="width:100%">
+    <legend>Section removal</legend>
+    <ol>
+        {% if username %}<li>Username: {{ username }}</li>{% endif %}
+        {% if email %}<li>Email: {{ email }}</li>{% endif %}
+        {% if verboselevel %}<li>Level: {{verboselevel}}</li>{% endif %}
+        {% if date %}<li>Date: {{date}}</li>{% endif %}
+        {% if owned %}<li>Sections owned: {{owned}}</li>{% endif %}
+        <li class="ynbli">
+            <div>Are you sure you want to remove this user?<br/>Removing users can make them feel sad.</div>
+            <div>{% if email %}<input type="submit" value="Yes, I am"></input>{% endif %}<a href="/admin/users" title=""><input type="button" value="Not really"></input></a></div>
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

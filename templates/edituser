@@ -1,0 +1,32 @@
+{% extends "skeletons/form" %}
+{% block success_message %}The changes were saved succesfully.{% endblock %}
+{% block success_backlink %}<a href="{{ backurl }}" {% ifequal section "newuser" %}class="add">Add new user{% else %}class="back" >Go to user list{% endifequal %}</a>{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="display:block">
+    <legend>User properties</legend>
+    <ol>
+        <li>
+            <label for="email">Email<span class="asterisk">*</span></label>
+            <div class="inputcontainer" ><input type="text" name="email" id="email" value="{{email}}" /></div>
+        </li>
+
+        <li>
+            <label for="level">Level</label>
+            <div class="inputcontainer" style="display:inline-block;">
+            <select name="level" id="level" >
+            {% for i in editlevels %}
+                {% ifequal i.value level %}
+                <option value="{{ i.value }}" selected="selected">{{ i.text }}</option>
+                {% else %}
+                <option value="{{ i.value }}">{{ i.text }}</option>
+                {% endifequal %}
+            {% endfor %}
+            </select>
+            </div>
+        </li>
+        <li>
+            <div><input type="submit"></input> {% if date %}(User created at: {{date}}){% endif %}</div>
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

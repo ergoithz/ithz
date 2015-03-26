@@ -1,0 +1,1 @@
+{% if errors %}<div class="errors"><span class="title">{% block error_message %}An error has been found.{% endblock %}</span>{% for i in errors %}<span class="item">{{ i|safe }}.</span>{% endfor %}</div>{% endif %}

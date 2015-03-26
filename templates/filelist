@@ -1,0 +1,68 @@
+{% extends "skeletons/form" %}
+{% block success_message %}Changes were saved successfully.{% endblock %}
+{% block content %}
+{% if not isdialog %}
+<fieldset class="formFieldset" style="display:block">
+    <legend>Files</legend>
+    <ol>
+        <li>
+
+            <table cellpadding="0" cellspacing="0" class="itemlist">
+                {% if items %}{% for i in items %}<tr class="{% cycle row,rowalt %}">
+                    {% if i.preview %}<td class="minimum"><img src="{{ i.preview.src }}" alt="{{ i.preview.alt }}"/></td>{% endif %}
+                    <td style="text-align:left;">
+                    {% if i.remove %}{% spaceless %}
+                        <div style="float:right;">
+                            <a style="margin-left:4px;" href="{{ i.remove }}" title="Remove this file"><img src="/icons/bin.png" alt="Remove"/></a>
+                        </div>
+                    {% endspaceless %}{% endif %}
+                    <a href="{{ i.link }}" title="Get file" target="_blank">{% if i.icon %}<img src="{{ i.icon.src }}" alt="{{ i.icon.alt }}"/>{% endif %}{{ i.name }}</a></td>
+                    
+                    <td class="minimum">{{ i.size }}</td>
+                    {% if i.user %}{% spaceless %}<td class="minimum">
+                        {{ i.user }}
+                    </td>{% endspaceless %}{% endif %}
+                    <td class="minimum">{{ i.date }}</td>
+                </tr>{% endfor %}{% else %}<tr class="row">
+                    <td colspan="6">No data</td>
+                </tr>{% endif %}
+            </table>
+            {% if add %}<div style="text-align:right"><a href="{{ add }}" class="add">Upload new file</a></div>{% endif %}
+            <span>There {{ nfiles|pluralize:"is,are" }} {{ nfiles }} file{{ nfiles|pluralize }}.</span>
+        </li>
+        <li style="text-align:center" >
+            {% for pageitem in pagelist %}
+                {% ifequal pageitem.n page %}
+                   <span class="currentPage">{{ pageitem.text }}</span>
+                {% else %}
+                    <a class="pageLink" href="{{ pageitem.href }}" >{{ pageitem.text }}</a>
+                {% endifequal %}
+            {% endfor %} 
+        </li>
+    </ol>
+</fieldset>
+{% else %}
+<table cellpadding="0" cellspacing="0" class="itemlist">
+    {% if items %}{% for i in items %}<tr class="{% cycle row,rowalt %}">
+        {% if i.preview %}<td style="width:1%;" class="preview"><img src="{{ i.preview.src }}" alt="{{ i.preview.alt }}"/></td>{% endif %}
+        <td style="text-align:left;">
+        <a href="{{ i.link }}" title="Get file" target="_blank">{% if i.icon %}<img src="{{ i.icon.src }}" alt="{{ i.icon.alt }}"/>{% endif %}{{ i.name }}</a>
+        <br/>{{ i.size }}<br/>
+        {% if i.user %}{ i.user }}<br/>{% endif %}
+        {{ i.date }}</td>
+    </tr>{% endfor %}{% else %}<tr class="row">
+        <td colspan="6">No data</td>
+    </tr>{% endif %}
+</table>
+<div style="text-align:center" >
+    {% for pageitem in pagelist %}
+        {% ifequal pageitem.n page %}
+           <span class="currentPage">{{ pageitem.text }}</span>
+        {% else %}
+            <a class="pageLink" href="{{ pageitem.href }}" >{{ pageitem.text }}</a>
+        {% endifequal %}
+    {% endfor %} 
+</div>
+{% endif %}
+
+{% endblock %}

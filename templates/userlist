@@ -1,0 +1,38 @@
+{% extends "skeletons/form" %}
+{% block success_message %}Changes were saved successfully.{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="display:block">
+    <legend>Users</legend>
+    <ol>
+        <li>
+            <table cellpadding="0" cellspacing="0" class="itemlist">
+                {% if items %}{% for i in items %}<tr class="{% cycle row,rowalt %}">
+                    <td style="text-align:left;">
+                        <div style="float:right;">{% if i.edit %}{% spaceless %}
+                            <a href="{{ i.edit }}" title="Edit this user"><img src="/icons/user_edit.png" alt="Edit"/></a>
+                        {% endspaceless %}{% endif %}{% if i.remove %}{% spaceless %}
+                            <a style="margin-left:4px;" href="{{ i.remove }}" title="Remove this user"><img src="/icons/user_delete.png" alt="Remove"/></a>
+                        {% endspaceless %}{% endif %}</div>
+                    <span>{{ i.username }}</span></td>
+                    
+                    <td style="width:1%;white-space:nowrap;">{{ i.levelname }}</td>
+                    <td style="width:1%;white-space:nowrap;">{{ i.date }}</td>
+                </tr>{% endfor %}{% else %}<tr class="row">
+                    <td colspan="6">No data</td>
+                </tr>{% endif %}
+            </table>
+            {% if add %}<div style="text-align:right"><a href="{{ add }}" class="add">Add new user</a></div>{% endif %}
+            <span>There {{ nusers|pluralize:"is,are" }} {{ nusers }} user{{ nusers|pluralize }} registered.</span>
+        </li>
+        <li style="text-align:center" >
+            {% for pageitem in pagelist %}
+                {% ifequal pageitem.n page %}
+                   <span class="currentPage">{{ pageitem.text }}</span>
+                {% else %}
+                    <a class="pageLink" href="{{ pageitem.href }}" >{{ pageitem.text }}</a>
+                {% endifequal %}
+            {% endfor %} 
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

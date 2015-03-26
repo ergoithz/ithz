@@ -1,0 +1,4 @@
+.formFieldset li{clear:both;display:block;}
+.formFieldset li .inputcontainer,.formFieldset li label{display:inline;vertical-align:middle;zoom:1;}
+.formFieldset li .textareacontainer{display:block;clear:both;}
+.inline_div, a.add, a.back{display:inline;width:auto;zoom:1;}

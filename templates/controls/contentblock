@@ -1,0 +1,1 @@
+{% include "controls/error" %}{% if editlink %}<a class="editlink" href="{{editlink.href}}" title="Edit this"><img src="/icons/pencil.png" alt="Edit"/></a>{% endif %}{{content|safe}}

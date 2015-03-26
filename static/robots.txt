@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /dialog/
+Noindex: /preview/*
+Noindex: /file/*

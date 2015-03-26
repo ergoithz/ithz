@@ -1,0 +1,22 @@
+{% if entries %}
+    <ul class="entries">
+    {% for i in entries %}
+        <li>
+            <p class="title">{% if i.link %}<a href="{{ i.link }}">{{ i.title }}</a>{% else %}{{ i.title }}{% endif %}</p>
+            <p class="published">{{ i.published_datetime|date:"d.m.Y - H:i:s" }}</p>
+            {% for j in i.summary %}
+            <p class="summary">{{ j.summary }}</p>
+            {% endfor %}
+            {% for j in i.content %}
+            <p class="content">{% if feed %}{{ j.value|truncatewords_html:20|striptags}}{% else %}{{j.value}}{% endif %}</p>
+            {% endfor %}
+            {% comment %}
+            <p class="feet">Publicado en: {% for j in i.tags %}{% if forloop.first %}{% else %}{% if forloop.last %}, {% else %}y {% endif %}{% endif %}<span class="tag">{{ j.keyword }}</span>{% if forloop.last %}.{%else%}, {% endif %}{% endfor %}</p>
+            {% endcomment %}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay entradas creadas.</p>
+{% endif %}
+

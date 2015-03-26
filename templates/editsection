@@ -1,0 +1,78 @@
+{% extends "skeletons/form" %}
+{% block success_message %}The changes were saved succesfully.{% endblock %}
+{% block success_backlink %}
+    <a href="/admin/new" title="" class="add" >Add new section</a>
+{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="display:block">
+    <legend>Section properties</legend>
+    <ol>
+        <li>
+            <label for="parentid">Location</label>
+            <div class="inputcontainer">
+            <select name="parentid" id="parentid" >
+            {% for i in parentids %}
+                {% ifequal i.value parentid %}
+                <option value="{{ i.value }}" selected="selected">{{ i.text }}</option>
+                {% else %}
+                <option value="{{ i.value }}">{{ i.text }}</option>
+                {% endifequal %}
+            {% endfor %}
+            </select>
+            </div>
+        </li>
+        <li>
+            <label for="link">Link text</label>
+            <div class="inputcontainer" ><input type="text" name="link" id="link" value="{{link}}" /></div>
+        </li>
+        <li>
+            <label for="description">Description</label>
+            <div class="textareacontainer" style="display:block;"><textarea cols="50" rows="4" name="description" id="description">{{description}}</textarea></div>
+        </li>
+        <li>
+            <label for="content_xhtml_">Content</label>
+            <div class="textareacontainer" style="display:block;"><textarea cols="50" rows="15" id="content_xhtml_" name="content">{{ content }}</textarea></div>
+        </li>
+        {% comment %}Advanced...{% endcomment %}
+        <li id="a_hide_1">
+            <label for="id">Section ID (used on url)</label>
+            <div class="inputcontainer" ><input type="text" name="id" id="id" value="{{id}}" /></div>
+        </li>
+        <li id="b_hide_1">
+            <label for="priority_int_">Priority</label>
+            <div class="inputcontainer" ><input type="text" name="priority" id="priority_int_" size="2" value="{{priority}}" style="text-align:right;" /></div>            
+        </li>
+        <li id="c_hide_1">
+            <label for="editability">Editability</label>
+            <div class="inputcontainer">
+            <select name="editability" id="editability" >
+            {% for i in editlevels %}
+                {% ifequal i.value level %}
+                <option value="{{ i.value }}" selected="selected">{{ i.text }}</option>
+                {% else %}
+                <option value="{{ i.value }}">{{ i.text }}</option>
+                {% endifequal %}
+            {% endfor %}
+            </select>
+            </div>
+        </li>
+        <li id="d_hide_1">
+            <label for="visibility">Visibility</label>
+            <div class="inputcontainer">
+            <select name="visibility" id="visibility" >
+            {% for i in showlevels %}
+                {% ifequal i.value showlevel %}
+                <option value="{{ i.value }}" selected="selected">{{ i.text }}</option>
+                {% else %}
+                <option value="{{ i.value }}">{{ i.text }}</option>
+                {% endifequal %}
+            {% endfor %}
+            </select>
+            </div>
+        </li>
+        <li>
+            <div><input type="submit"/> {% if date %}(Last modification: {{date}}){% endif %}</div>
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

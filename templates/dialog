@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>ithz</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="StyleSheet" type="text/css" href="/style/fixes/reset.css"/>
+<link rel="StyleSheet" type="text/css" href="/style/dialog.css"/>
+<link rel="StyleSheet" type="text/css" href="/style/content.css"/>
+<!--[if lte IE 7]><link rel="StyleSheet" type="text/css" href="/style/fixes/ie7.css"/><![endif]-->
+{{ JavaScripts }}
+</head>
+<body>
+<div class="wrapper"><div class="main"><div class="content">
+    {% include "controls/error" %}
+    {{ content }}
+</div></div></div>
+</body>
+</html>

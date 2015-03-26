@@ -1,0 +1,22 @@
+{% if formsuccess %}<div class="success" >
+    <span class="title">{% block success_message %}The action has been done succesfully.{% endblock %}</span>
+</div><div style="padding: 0.5em 1em;">{% block success_backlink %}{% endblock %}</div>
+{% else %}
+<form name="{% if form_name %}{{ form_name }}{% else %}mainForm{% endif %}" action="{{ form_action }}" {% if form_enctype %}enctype="{{ form_enctype }}" {% endif %}method="{% if form_method %}{{ form_method }}{% else %}post{% endif %}" {% if form_id %}id="{{ form_id }}"{% endif %} >
+{% if stepsuccess %}
+<div class="success" >
+    <span class="title">{% block step_success_message %}The action has been done succesfully.{% endblock %}</span>
+</div>
+{% endif %}
+{% if steperror %}
+<div class="errors" >
+    <span class="title">{% block step_error_message %}An error has been found.{% endblock %}</span>
+    {% for i in step_errors %}
+    <span class="item">{{ i }}.</span>
+    {% endfor %}
+</div>
+{% endif %}
+{% block content %}{% endblock %}
+</form>
+{% endif %}
+

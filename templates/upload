@@ -1,0 +1,27 @@
+{% extends "skeletons/form" %}
+{% block success_message %}Changes were saved successfully.{% endblock %}
+{% block content %}
+{% if not isdialog %}
+<fieldset class="formFieldset" style="display:block">
+    <legend>File upload</legend>
+    <ol id="_upfile_">
+        <li class="jsunrequired">
+            <label for="file">Choose file</label>
+            <div class="inputcontainer">
+                <input type="file" name="file" id="file"/>       
+            </div>
+        </li>
+        <li class="jsunrequired">
+            <input type="submit"/>
+        </li>
+    </ol>
+</fieldset>
+{% else %}
+{% if not hideform %}
+<div class="inputcontainer">
+    <input type="file" name="file" id="file_autosubmit_" />
+    <span class="jsunrequired"><input type="submit" value="Upload"/></span>
+</div>
+{% endif %}
+{% endif %}
+{% endblock %}

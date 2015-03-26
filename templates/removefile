@@ -1,0 +1,17 @@
+{% extends "skeletons/form" %}
+{% block success_message %}The file has been removed succesfully.{% endblock %}
+{% block success_backlink %}<a href="{{backurl}}" class="back" >Go to file list</a>{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="width:100%">
+    <legend>File removal</legend>
+    <ol>
+        {% if filename %}<li>Filename: {{ filename }}</li>{% endif %}
+        {% if user %}<li>Owner: {{ user }}</li>{% endif %}
+        {% if date %}<li>Date: {{date}}</li>{% endif %}
+        <li class="ynbli">
+            <div>¿Are you sure you want to remove this file?<br/>Never remove linked files. Remember: a file can be linked anywhere, also on sections hidden for you.</div>
+            <div>{% if id %}<input type="submit" value="Yes, I am"></input>{% endif %}<a href="{{backurl}}" title=""><input type="button" value="Not really"></input></a></div>
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

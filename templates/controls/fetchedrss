@@ -1,0 +1,9 @@
+{% if feed %}
+<div class="feed">
+    <p class="title">{% if feed.link %}<a href="{{ feed.link }}">{{ feed.title }}</a>{% else %}{{ feed.title }}{% endif %}</p>
+    {% include "blog" %}
+</div>
+{% else %}
+{{ no_rss_error }}
+{% endif %}
+

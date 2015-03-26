@@ -1,0 +1,1 @@
+{% if menuitems %}<ul>{% for item in menuitems %}<li{% if item.selected and ismain %} class="selected"><span><span>{{ item.text }}</span></span></li>{% else %}{% if item.selected %} class="selected"{% endif %}><span><a href="{{ item.href }}"  title="{{ item.alt }}">{{ item.text }}</a></span></li>{% endif %}{% endfor %}</ul>{% endif %}

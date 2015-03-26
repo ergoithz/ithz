@@ -1,0 +1,40 @@
+indexes:
+#- kind: Comments
+#  properties:
+#  - name: page
+#  - name: data_issued
+#    direction: desc
+
+- kind: SectionModel
+  properties:
+  - name: parentid
+  - name: visibility
+  - name: priority
+
+- kind: SectionModel
+  properties:
+  - name: visibility
+  - name: priority
+
+- kind: SectionModel
+  properties:
+  - name: parentid
+  - name: priority
+
+- kind: SectionHistoryModel
+  properties:
+  - name: section
+  - name: datetime
+    direction: desc
+
+- kind: UserFileModel
+  properties:
+  - name: user
+  - name: date
+    direction: desc
+
+- kind: UserImageFileModel
+  properties:
+  - name: user
+  - name: date
+    direction: desc

@@ -1,0 +1,20 @@
+{% extends "skeletons/form" %}
+{% block success_message %}The section has been removed succesfully.{% endblock %}
+{% block success_backlink %}<a href="{{backurl}}" class="back" >Go to section list</a>{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="width:100%">
+    <legend>Section removal</legend>
+    <ol>
+        {% if parentid %}<li>Parent: {{ parentid }}</li>{% endif %}
+        {% if id %}<li>Section id: {{id}}</li>{% endif %}
+        {% if link %}<li>Link name: {{link}}</li>{% endif %}
+        {% if priority %}<li>Priority: {{priority}}</li>{% endif %}
+        {% if description %}<li>Description: {{description}}</li>{% endif %}
+        {% if content %}<li>Content: {{ content }}</li>{% endif %}
+        <li class="ynbli">
+            <div>Are you sure you want to remove {% if owned %}this section?{% else %}{{author}}'s section?<br/>Removing anyone's work without authorization isn't a good idea.{% endif %}</div>
+            <div>{% if id %}<input type="submit" value="Yes, I am"></input>{% endif %}<a href="{{backurl}}" title=""><input type="button" value="Not really"></input></a></div>
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

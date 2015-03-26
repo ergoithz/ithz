@@ -1,0 +1,96 @@
+body *{font-family:arial;}
+html, body{height:100%;}
+body{background:#ececec url('menubg.gif') right top repeat-y;margin:0;padding:0;}
+body.nomenu{background-image:none;}
+sup{vertical-align:super;font-size:small;}
+.wrapper{height:auto;min-height:100%;color:#1d2632;}
+    .topmenu{position:absolute;z-index:9;top:5px;left:0;width:auto;background:transparent url('topbard.gif') right top no-repeat;padding-right:11px;}
+        .topmenu .container{background:transparent url('topbar.gif') right top repeat-x;display:inline-block;height:22px;padding:2px 0 4px 4px;}
+        .topmenu img{margin:0 2px;}
+        .topmenu #login{}
+        .topmenu #lang img{margin:3px 2px 2px;}
+    .header{background:#3d4d66 url('bgdg.png') left top repeat-x;padding-top:200px;}
+        #l1,#l2,#l3{position:absolute;left:0;top:0;width:100%;height:200px;}
+        #l1{background:transparent url('clouds.gif') left 20px repeat-x;z-index:2;}
+        #l2{background:transparent url('gear.gif') right top no-repeat;z-index:3;}
+        #l3{background:transparent url('skyline.png') left 15px repeat-x;z-index:4;}
+        .tabs{
+            background:#1d2632 url('ahcorner.gif') 77px bottom no-repeat;
+            width:100%;
+            }
+            .tabs a{text-decoration:none;}
+            .tabs .ahome, .tabs .m, .tabs .n, .tabs ul{height:45px;}
+            .tabs .ahome{
+                padding-left:10px;
+                margin-bottom:-45px;
+            }
+            .tabs .ahome img{
+                vertical-align:middle;
+                margin-top:8px;
+            }
+            .tabs .l{
+                margin-left:90px;
+                background:#89a02c url('tabbg.png') left top repeat-x;
+            }
+            .tabs .m{
+                background:transparent url('tabbgdeco.png') right top no-repeat;
+            }
+            .tabs .n{
+                background:transparent url('inimenu.gif') left top no-repeat;
+            }
+            .tabs li{
+                display:block;
+                float:left;
+                margin-left:-13px;
+                margin-right:-20px;
+                display:inline-block;
+                padding:0 44px 0 25px;
+                }
+            .tabs li *{display:inline-block;}
+            .tabs li a, .tabs li span span{
+                min-height:45px;
+                line-height:45px;
+                vertical-align:middle;
+                /*font-size:110%;*/
+                font-weight:bold;
+                color:#313e53;
+            }
+            .tabs li.selected{
+                background:transparent url('stabi.png') left top no-repeat;
+                padding:0;
+                padding-left:25px;
+            }
+                .tabs li.selected span{
+                    background:transparent url('stabd.png') right top no-repeat;
+                    padding-right:44px;
+                }
+                .tabs li.selected span span, .tabs li.selected span a{
+                    padding:0;
+                    background:#ececec url('stab.gif') right top repeat-x;
+                    color:#1d2632;
+                }
+    .main{clear:both;}
+        .main .content{padding:10px;margin-right:250px;}
+        body.nomenu .content{margin-right:0;padding-bottom:45px;}
+        .main .menu{
+            background:transparent url('menubgtop.png') left top no-repeat;
+            padding-top:14px;
+            width:250px;
+            float:right;
+            padding-bottom:45px;
+            }
+            body.nomenu .main .menu{display:none;}
+            .main .menu a{text-decoration:none;color:#313e53;font-weight:bold;}
+            .main .menu ul{margin-top:7px;}
+            .main .menu li{display:block;padding:0px 5px 0px 20px;min-height:20px;line-height:20px;vertical-align:middle;}
+                .main .menu li.selected{background:transparent url('smenu.png') left center no-repeat;}
+                    .main .menu li.selected a{color:#1d2632;}
+
+.footer1, .footer2{position:relative;top:-45px;height:45px;margin-bottom:-45px;float:right;display:inline;}
+.footer2{display:none;}
+body.nomenu .footer1{display:none;}
+body.nomenu .footer2{display:inline;}
+.hr{border-style:none;background:transparent;display:block;height:0px;margin:0;padding:0;visibility:hidden;clear:both;}
+.statistics{display:none;}
+input[type=button],input[type=image],input[type=submit],input[type=file],button,select,button,.fakebtn{cursor:pointer;}
+.inline_div{display:inline-block;}

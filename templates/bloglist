@@ -1,0 +1,36 @@
+{% extends "skeletons/form" %}
+{% block success_message %}Changes were saved successfully.{% endblock %}
+{% block content %}
+<fieldset class="formFieldset" style="display:block">
+    <legend>Blogs</legend>
+    <ol>
+        <li>
+            <table cellpadding="0" cellspacing="0" class="itemlist">
+                {% if items %}{% for i in items %}<tr class="{% cycle row,rowalt %}">
+                    <td style="text-align:left;">
+                    <div style="float:right;">{% if i.edit %}<a href="{{ i.edit }}" title="Edit this entry"><img src="/icons/pencil.png" alt="Edit" /></a><a style="margin-left:4px;" href="{{ i.remove }}" title="Remove this entry"><img src="/icons/bin.png" alt="Remove" /></a>{% endif %}</div>
+                    <a href="{{ i.link }}" title="{{ i.description }}">{{ i.text }}</a>
+                    {% if i.description %}<span> ( {{ i.description }} )</span>{% endif %}
+                    </td>
+                    <td class="minimum">{% if i.parent %}on {{ i.parent }}{% else %}{% endif %}</td>
+                    <td class="minimum"><span style="font-weight:bold">{{ i.author }}</span></td>
+                    <td class="minimum">{{ i.date }}</td>
+                </tr>{% endfor %}{% else %}<tr class="row">
+                    <td colspan="6">No data</td>
+                </tr>{% endif %}
+                </table>
+                {% if add %}<div style="text-align:right"><a href="{{ add }}" class="add">Add new blog</a></div>{% endif %}
+            <span>There {{ nblogs|pluralize:"is,are" }} {{ nblogs }} blog{{ nblogs|pluralize }}.</span>
+        </li>
+        <li style="text-align:center" >
+            {% for pageitem in pagelist %}
+                {% ifequal pageitem.n page %}
+                   <span class="currentPage">{{ pageitem.text }}</span>
+                {% else %}
+                    <a class="pageLink" href="{{ pageitem.href }}">{{ pageitem.text }}</a>
+                {% endifequal %}
+            {% endfor %} 
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

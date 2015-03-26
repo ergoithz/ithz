@@ -1,0 +1,1 @@
+*{behavior:url('/style/iepngfix.htc');zoom:1;} .select_replacer, .select_replacer_clicked, input, select{cursor:hand;} .select_replacer ul{display:none;} .select_replacer_clicked ul{display:block;} .select_replacer_clicked ul li{display:block;} .main .menu li.selected{background-color:url("/style/smenu.gif");}

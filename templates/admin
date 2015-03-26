@@ -1,0 +1,27 @@
+<p>Welcome to the administration zone of your site.</p>
+<p>CMS version: {{ version }}</p>
+{% if log %}
+<h3>Log data:</h3>
+<div style="padding-left:12px;font-family:monospace;">
+{{ log }}
+</div>
+{% endif %}
+{% if req %}
+<h3>Request headers:</h3>
+<dl>
+    {% for i in req %}
+        <dt>{{ i.name }}</dt>
+        <dd>{{ i.value }}</dd>
+    {% endfor %}
+</dl>
+{% endif %}
+{% if res %}
+<h3>Response headers:</h3>
+<dl>
+    {% for i in res %}
+        <dt>{{ i.name }}</dt>
+        <dd>{% for j in i.value %}{{j}}{% endfor %}</dd>
+    {% endfor %}
+</dl>
+{% endif %}
+{% if server_management %}{% endif %}
